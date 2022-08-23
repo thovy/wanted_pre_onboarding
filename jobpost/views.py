@@ -3,6 +3,7 @@ from .models import Company
 from .models import JobPost
 from .serializer import CompanySerializer
 from .serializer import JobpostSerializer
+from .serializer import JobpostCreateSerializer
 from .serializer import JobpostListSerializer
 from rest_framework import generics
 from rest_framework.filters import SearchFilter
@@ -19,7 +20,7 @@ class JobPostList(generics.ListAPIView):
 
 class JobPostCreate(generics.CreateAPIView):
     queryset = JobPost.objects.all()
-    serializer_class = JobpostSerializer
+    serializer_class = JobpostCreateSerializer
 
 # 조회, 수정, 삭제
 class JobPostDetail(generics.RetrieveUpdateDestroyAPIView):
