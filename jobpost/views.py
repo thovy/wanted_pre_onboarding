@@ -13,16 +13,17 @@ class CompanyCreate(generics.CreateAPIView):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
 
-# 공고 목록 조회, 등록
+# 공고 목록 조회
 class JobPostList(generics.ListAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobpostListSerializer
 
+# 공고 등록
 class JobPostCreate(generics.CreateAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobpostCreateSerializer
 
-# 조회, 수정, 삭제
+# 공고 상세 조회, 수정, 삭제
 class JobPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobpostSerializer
