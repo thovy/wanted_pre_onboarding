@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.JobPostList.as_view()),
+    path('company', views.CompanyCreate.as_view()),
     path('jobpost/<int:pk>/', views.JobPostDetail.as_view())
 ]
 
