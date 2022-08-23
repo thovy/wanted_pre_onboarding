@@ -9,6 +9,7 @@ class Company(models.Model):
 
 # 채용 공고
 class JobPost(models.Model):
+    company_id = models.ForeignKey('Company',on_delete=models.CASCADE)
     company_name = models.CharField(max_length=100)
     company_nation = models.CharField(max_length=20)
     company_region = models.CharField(max_length=20)
