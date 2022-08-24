@@ -1,5 +1,7 @@
 from .models import Company
 from .models import JobPost
+from .models import User
+from .models import Resume
 from rest_framework import serializers
 
 # 회사 등록
@@ -50,3 +52,15 @@ class JobpostSerializer(serializers.ModelSerializer):
             "skill",
             "article",
         ]
+
+# 사용자 등록, 삭제
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
+
+# 이력서 등록, 조회, 삭제
+class ResumeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Resume
+        fields = '__all__'

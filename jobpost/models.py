@@ -23,3 +23,18 @@ class JobPost(models.Model):
 
     def __str__(self):
         return self.name
+
+# 사용자
+class User(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
+# 지원
+class Resume(models.Model):
+    User = models.ForeignKey("User", on_delete=models.CASCADE)
+    JobPost = models.ForeignKey("Jobpost", on_delete=models.CASCADE)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

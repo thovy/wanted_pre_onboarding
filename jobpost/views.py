@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from .models import Company
 from .models import JobPost
+from .models import User
+from .models import Resume
 from .serializer import CompanySerializer
 from .serializer import JobpostSerializer
 from .serializer import JobpostCreateSerializer
 from .serializer import JobpostListSerializer
+from .serializer import UserSerializer
+from .serializer import ResumeSerializer
 from rest_framework import generics
-from rest_framework.filters import SearchFilter
 
 # 회사 등록
 class CompanyCreate(generics.CreateAPIView):
@@ -27,4 +30,24 @@ class JobPostCreate(generics.CreateAPIView):
 class JobPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobpostSerializer
+
+# 사용자 등록
+class UserCreate(generics.CreateAPIView):
+    queryset = User
+    serializer_class = UserSerializer
+
+# 사용자 조회, 수정, 삭제
+class UserUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User
+    serializer_class = UserSerializer
+
+# 이력서 등록
+class ResumeCreate(generics.CreateAPIView):
+    queryset = Resume.objects.all()
+    serializer_class = ResumeSerializer
+
+# 이력서 조회, 삭제
+class ResumeDelete(generics.RetrieveDestroyAPIView):
+    queryset = Resume.objects.all()
+    serializer_class = ResumeSerializer
 
