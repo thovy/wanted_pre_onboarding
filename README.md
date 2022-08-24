@@ -11,6 +11,7 @@ Django & Rest_Framework
 ![](https://velog.velcdn.com/images/thovy/post/84df8a15-f0b2-4c1e-83c8-f9316518b374/image.png)
 
 ## API 명세서
+![API 명세서](https://documenter.getpostman.com/view/21186233/VUqrQHod#70d3af34-28a6-4a3a-94f5-8fe992c17745)
 
 ## 요구사항
 - [x] 1 채용공고를 등록합니다. `/jobpost`
