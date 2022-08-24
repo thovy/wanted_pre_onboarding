@@ -9,6 +9,9 @@ from .serializer import JobpostCreateSerializer
 from .serializer import JobpostListSerializer
 from .serializer import UserSerializer
 from .serializer import ResumeSerializer
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+from rest_framework.viewsets import ModelViewSet
 from rest_framework import generics
 
 # 회사 등록
@@ -30,6 +33,14 @@ class JobPostCreate(generics.CreateAPIView):
 class JobPostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobpostSerializer
+
+# 공고 검색
+class JobPostSearch(ModelViewSet):
+    gueryset = JobPost.objects.all()
+    serializer_class = JobpostSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['id', 'skill']
+
 
 # 사용자 등록
 class UserCreate(generics.CreateAPIView):
