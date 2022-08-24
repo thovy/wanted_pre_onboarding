@@ -22,7 +22,7 @@ class JobPost(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.id} {self.article}'
+        return f'{self.id} - {self.article}'
 
 # 사용자
 class User(models.Model):
