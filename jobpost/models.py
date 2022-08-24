@@ -22,7 +22,7 @@ class JobPost(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.id} {self.article}'
 
 # 사용자
 class User(models.Model):
@@ -34,7 +34,8 @@ class User(models.Model):
 # 지원
 class Resume(models.Model):
     User = models.ForeignKey("User", on_delete=models.CASCADE)
-    JobPost = models.ForeignKey("Jobpost", on_delete=models.CASCADE)
+    JobPost = models.ForeignKey("JobPost", on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
